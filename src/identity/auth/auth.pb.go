@@ -7,10 +7,10 @@
 package auth
 
 import (
+	user "github.com/kerem-backengine/backengine-proto/src/identity/user"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
-	user "src/identity/user"
 	sync "sync"
 )
 

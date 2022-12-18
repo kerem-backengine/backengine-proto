@@ -8,10 +8,10 @@ package auth
 
 import (
 	context "context"
+	user "github.com/kerem-backengine/backengine-proto/src/identity/user"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	user "src/identity/user"
 )
 
 // This is a compile-time assertion to ensure that this generated file
