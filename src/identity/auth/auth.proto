@@ -1,0 +1,14 @@
+syntax = "proto3";
+package backengine_identity;
+option go_package = "src/identity/auth";
+
+import "src/identity/user/user.proto";
+
+service AuthService {
+  rpc Login(LoginRequest) returns (user.UserModel){}
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}

@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        v3.21.5
-// source: src/identity/identity.proto
+// source: src/identity__/identity__.proto
 
 package multiply
 
@@ -169,12 +169,12 @@ func file_src_identity_identity_proto_rawDescGZIP() []byte {
 
 var file_src_identity_identity_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_src_identity_identity_proto_goTypes = []interface{}{
-	(*MultiplyRequest)(nil),  // 0: identity.MultiplyRequest
-	(*MultiplyResponse)(nil), // 1: identity.MultiplyResponse
+	(*MultiplyRequest)(nil),  // 0: identity__.MultiplyRequest
+	(*MultiplyResponse)(nil), // 1: identity__.MultiplyResponse
 }
 var file_src_identity_identity_proto_depIdxs = []int32{
-	0, // 0: identity.MultiplyService.Multiply:input_type -> identity.MultiplyRequest
-	1, // 1: identity.MultiplyService.Multiply:output_type -> identity.MultiplyResponse
+	0, // 0: identity__.MultiplyService.Multiply:input_type -> identity__.MultiplyRequest
+	1, // 1: identity__.MultiplyService.Multiply:output_type -> identity__.MultiplyResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

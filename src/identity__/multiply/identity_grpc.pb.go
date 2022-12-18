@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.21.5
-// source: src/identity/identity.proto
+// source: src/identity__/identity__.proto
 
 package multiply
 
@@ -35,7 +35,7 @@ func NewMultiplyServiceClient(cc grpc.ClientConnInterface) MultiplyServiceClient
 
 func (c *multiplyServiceClient) Multiply(ctx context.Context, in *MultiplyRequest, opts ...grpc.CallOption) (*MultiplyResponse, error) {
 	out := new(MultiplyResponse)
-	err := c.cc.Invoke(ctx, "/identity.MultiplyService/Multiply", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/identity__.MultiplyService/Multiply", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func _MultiplyService_Multiply_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/identity.MultiplyService/Multiply",
+		FullMethod: "/identity__.MultiplyService/Multiply",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MultiplyServiceServer).Multiply(ctx, req.(*MultiplyRequest))
@@ -92,7 +92,7 @@ func _MultiplyService_Multiply_Handler(srv interface{}, ctx context.Context, dec
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var MultiplyService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "identity.MultiplyService",
+	ServiceName: "identity__.MultiplyService",
 	HandlerType: (*MultiplyServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -101,5 +101,5 @@ var MultiplyService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "src/identity/identity.proto",
+	Metadata: "src/identity__/identity__.proto",
 }

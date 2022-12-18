@@ -1,6 +1,6 @@
 syntax = "proto3";
 package identity;
-option go_package = "src/identity/multiply";
+option go_package = "src/identity__/multiply";
 
 service MultiplyService {
   rpc Multiply(MultiplyRequest) returns (MultiplyResponse) {}
