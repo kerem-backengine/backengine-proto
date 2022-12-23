@@ -1,0 +1,7 @@
+syntax = "proto3";
+package backengine_identity;
+option go_package = "src/identity/pb";
+
+message UserModel {
+  string name = 1;
+}

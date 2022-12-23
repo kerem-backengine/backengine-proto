@@ -2,13 +2,12 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.21.5
-// source: src/identity/auth/auth.proto
+// source: src/identity/auth.proto
 
-package auth
+package pb
 
 import (
 	context "context"
-	user "github.com/kerem-backengine/backengine-proto/src/identity/user"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -23,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AuthServiceClient interface {
-	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*user.UserModel, error)
+	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*UserModel, error)
 }
 
 type authServiceClient struct {
@@ -34,8 +33,8 @@ func NewAuthServiceClient(cc grpc.ClientConnInterface) AuthServiceClient {
 	return &authServiceClient{cc}
 }
 
-func (c *authServiceClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*user.UserModel, error) {
-	out := new(user.UserModel)
+func (c *authServiceClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*UserModel, error) {
+	out := new(UserModel)
 	err := c.cc.Invoke(ctx, "/backengine_identity.AuthService/Login", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -47,7 +46,7 @@ func (c *authServiceClient) Login(ctx context.Context, in *LoginRequest, opts ..
 // All implementations must embed UnimplementedAuthServiceServer
 // for forward compatibility
 type AuthServiceServer interface {
-	Login(context.Context, *LoginRequest) (*user.UserModel, error)
+	Login(context.Context, *LoginRequest) (*UserModel, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }
 
@@ -55,7 +54,7 @@ type AuthServiceServer interface {
 type UnimplementedAuthServiceServer struct {
 }
 
-func (UnimplementedAuthServiceServer) Login(context.Context, *LoginRequest) (*user.UserModel, error) {
+func (UnimplementedAuthServiceServer) Login(context.Context, *LoginRequest) (*UserModel, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
 func (UnimplementedAuthServiceServer) mustEmbedUnimplementedAuthServiceServer() {}
@@ -102,5 +101,5 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "src/identity/auth/auth.proto",
+	Metadata: "src/identity/auth.proto",
 }

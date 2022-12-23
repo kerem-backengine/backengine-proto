@@ -1,7 +1,0 @@
-syntax = "proto3";
-package user;
-option go_package = "src/identity/user";
-
-message UserModel {
-  string name = 1;
-}
