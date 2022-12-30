@@ -5,7 +5,7 @@ option go_package = "src/identity/pb";
 import "src/identity/user.proto";
 
 service AuthService {
-  rpc Login(LoginRequest) returns (UserModel){}
+  rpc Login(LoginRequest) returns (User){}
 }
 
 message LoginRequest {

@@ -2,6 +2,11 @@ syntax = "proto3";
 package backengine_identity;
 option go_package = "src/identity/pb";
 
-message UserModel {
-  string name = 1;
+message User {
+  optional string id = 1;
+  string name = 2;
+  string surname = 3;
+  string email = 4;
+  string created_at = 5;
+  string updated_at = 6;
 }
