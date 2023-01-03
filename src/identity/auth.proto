@@ -6,6 +6,7 @@ import "src/identity/user.proto";
 
 service AuthService {
   rpc Login(LoginRequest) returns (User){}
+  rpc Register(User) returns (User){}
 }
 
 message LoginRequest {
