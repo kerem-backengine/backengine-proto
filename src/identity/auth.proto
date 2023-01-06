@@ -5,13 +5,18 @@ option go_package = "src/identity/pb";
 import "src/identity/user.proto";
 
 service AuthService {
-  rpc Login(LoginRequest) returns (User){}
-  rpc Register(RegisterRequest) returns (User){}
+  rpc Login(LoginRequest) returns (LoginResponse){}
+  rpc Register(RegisterRequest) returns (LoginResponse){}
 }
 
 message LoginRequest {
   string email = 1;
   string password = 2;
+}
+
+message LoginResponse {
+  User user = 1;
+  string token = 2;
 }
 
 message RegisterRequest {
