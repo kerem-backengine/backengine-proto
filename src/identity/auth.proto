@@ -3,10 +3,12 @@ package backengine_identity;
 option go_package = "src/identity/pb";
 
 import "src/identity/user.proto";
+import "google/protobuf/empty.proto";
 
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse){}
   rpc Register(RegisterRequest) returns (LoginResponse){}
+  rpc Profile(google.protobuf.Empty) returns (User){}
 }
 
 message LoginRequest {
