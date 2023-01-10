@@ -6,7 +6,7 @@ import "src/identity/user.proto";
 import "google/protobuf/empty.proto";
 
 service AuthService {
-  rpc Register(RegisterRequest) returns (LoginResponse){}
+  rpc Register(RegisterRequest) returns (RegisterResponse){}
   rpc Login(LoginRequest) returns (LoginResponse){}
   rpc ValidateToken(ValidateTokenRequest) returns(ValidateTokenResponse){}
   rpc Profile(google.protobuf.Empty) returns (User){}
@@ -27,6 +27,11 @@ message LoginRequest {
 message LoginResponse {
   User user = 1;
   string token = 2;
+}
+
+message RegisterResponse {
+  string name = 1;
+  string email = 2;
 }
 
 message ValidateTokenRequest {
